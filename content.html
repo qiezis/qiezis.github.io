@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+</head>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
+<body>
+<div class="wrap">
+    <div class="firgure">
+        <div class="art_log">Wiliwand</div>
+    </div>
+    <div class="shadow">
+        <!-- <img _src="images/wikiwand_screen_1.jpg" alt=""> -->
+        <img>
+    </div>
+    <div class="firgure_two">
+        <!-- <img _src="images/wikiwand_menu.jpg" alt="">
+        <img _src="images/wikiwand_map.jpg" alt=""> -->
+        <img>
+        <img>
+    </div>
+    <div class="phone">
+        <!-- <img _src="images/wikiwand_mob.jpg" alt=""> -->
+        <img>
+    </div>
+    <div class="inview">
+        <!-- <img _src="images/wikiwand_beatles.jpg" alt=""> -->
+        <img>
+    </div>
+    <div class="device_shadow">
+        <!-- <img _src="images/wikiwand_dark.jpg" alt=""> -->
+        <img>
+    </div>
+   <!--  <div class="firgure_three">
+        <div class=""><img src="images/wikiwand_mob_article.jpg" alt=""></div>
+        <div class=""><img src="images/wikiwand_mob_gal.jpg" alt=""></div>
+        <div class=""><img src="images/wikiwand_mob_menu.jpg" alt=""></div>
+
+    </div> -->
+</div>
+<script>
+var data_img=[
+    {"img":"images/wikiwand_screen_1.jpg"},
+    {"img":"images/wikiwand_menu.jpg"},
+    {"img":"images/wikiwand_map.jpg"},
+    {"img":"images/wikiwand_mob.jpg"},
+    {"img":"images/wikiwand_beatles.jpg"},
+    {"img":"images/wikiwand_dark.jpg"}
+
+];
+var imgs=document.querySelectorAll('img');
+for(var i=0;i<data_img.length;i++){
+    imgs[i].setAttribute('_src',data_img[i].img);
+}
+
+
+
+
+// 延迟加载
+    window.onscroll=function(){
+        reload();     
+    }
+    window.onresize=function(){
+        reload(); 
+    }
+    reload();
+    function reload(){
+       var scrollT=document.documentElement.scrollTop || document.body.scrollTop;
+        $('.wrap img').each(function(i,e){
+            if($(e).offset().top<document.documentElement.clientWidth+scrollT){
+                if($(e).attr('_src')){
+                    $(e).attr('src',$(e).attr('_src'));
+
+
+                    $(e).removeAttr('_src');
+                    $(e).animate({'opacity':'1'},1500);
+                }
+                
+            }
+        }) 
+    }
+</script>
+</body>
+</html>

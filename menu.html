@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>menu</title>
+<link rel="stylesheet" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<!-- <script type="text/javascript" src="js/base.js"></script> -->
+
+<script>
+$(function(){
+	// menu页
+	function sizeChange(){
+		var screenH=document.documentElement.clientHeight;
+		$('.wrap_menu').height(screenH);
+	}
+	sizeChange();
+	window.onresize=function(){
+		sizeChange();
+	}
+	
+		
+})
+</script>
+</head>
+<body>
+	<div class="wrap_menu">
+		<div class="left">
+			<a href="work.html"><p><b></b>Work</p></a>
+			<a href="javascript:;"><p><b></b>About</p></a>
+			<a href="contact.html"><p><b></b>Contact</p></a>
+	</div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>contact</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+</head>
+<body>
+    <div class="contact_wrap">
+        <div class="inp_mess">
+            <textarea placeholder="Say Hello"></textarea>
+            <p></p>
+        </div>
+        <div class="inp_name">
+            <textarea placeholder="Your Name"></textarea>
+            <p></p>
+        </div>
+        <div class="inp_mail">
+            <textarea placeholder="Your Email"></textarea>
+            <p></p>
+        </div>
+        <div class="btn_sub">
+            <input type="button" name="" value="submit">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+$(function(){
+    // contact页
+    function sizeChange(){
+        var screenH=document.documentElement.clientHeight;
+        $('.contact_wrap').height(screenH);
+    }
+    sizeChange();
+    window.onresize=function(){
+        sizeChange();
+    }
+    $('textarea').click(function(){
+        $(this).siblings('p').addClass('scale_enter').parents('div').siblings('div').children('p').addClass('scale_leave');
+        
+        // $(this).siblings('p').css({"transform-origin":"0%","transform":"scale(1,1)"}).parents('div').siblings('div').children('p').css({"transform-origin":"100%","transform":"scale(0,1)"});
+    });
+            
+
+
+
+})
+</script>

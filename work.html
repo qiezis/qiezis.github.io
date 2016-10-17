@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>work</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/demo1.js"></script>
+</head>
+<body>
+	<div class="work_box">
+		<ul>
+			<li class="li01">
+				<div class="content trans">Webydo</div>
+				<div class="content_slide trans">
+					<a href="content.html">2Webydo</a>
+				</div>
+				<div class="img"><img src="images/webydo_bg.jpg" alt=""></div>	
+			</li>
+			<li class="li02">
+				<div class="content trans">Wikiwand</div>
+				<div class="content_slide trans">
+					<a href="content.html">2Wikiwand</a>
+				</div>
+				<div class="img"><img src="images/wikiwand_bg.jpg" alt=""></div>	
+			</li>
+			<li class="li03">
+				<div class="content trans">Bird</div>
+				<div class="content_slide trans">
+					<a href="content.html">2Bird</a>
+				</div>
+				<div class="img"><img src="images/bird_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li04">
+				<div class="content trans">Numo</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">2Numo</a>
+				</div>
+				<div class="img"><img src="images/numo_bg.jpg" alt=""></div>	
+			</li>
+			<li class="li05">
+				<div class="content trans">Wipro</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Wipro</a>
+				</div>
+				<div class="img"><img src="images/wipro_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li06">
+				<div class="content trans">Humavox</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Humavox</a>
+				</div>
+				<div class="img"><img src="images/humavox_bg.jpg" alt=""></div>	
+			</li>
+			<li class="li07">
+				<div class="content trans">Zest</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Zest</a>
+				</div>
+				<div class="img"><img src="images/zest_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li08">
+				<div class="content trans">Windward</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Windward</a>
+				</div>
+				<div class="img"><img src="images/windward_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li09">
+				<div class="content trans">shibui</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">shibui</a>
+				</div>
+				<div class="img"><img src="images/shibui_bg.jpg" alt=""></div>	
+			</li>
+			<li class="li10">
+				<div class="content trans">Cleancube</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Cleancube</a>
+				</div>
+				<div class="img"><img src="images/cleancube_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li11">
+				<div class="content trans">Passible</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">Passible</a>
+				</div>
+				<div class="img"><img src="images/passible_tile.jpg" alt=""></div>	
+			</li>
+			<li class="li12">
+				<div class="content trans">The Colonie</div>
+				<div class="content_slide trans">
+					<a href="javascript:;">The Colonie</a>
+				</div>
+				<div class="img"><img src="images/thecolonie_tile.jpg" alt=""></div>	
+			</li>	
+		</ul>
+	</div>
+	<div class="work_btn">
+        <img src="images/reel.jpg" alt="">
+		<p></p>
+		<ul>
+			<li class="fade_out"><b></b></li>
+			<li class="fade_out">M</li>
+			<li class="fade_out">o</li>
+			<li class="fade_out">t</li>
+			<li class="fade_out">i</li>
+			<li class="fade_out">o</li>
+			<li class="fade_out">n</li>
+		</ul>
+
+	</div>
+<script>
+	var DIR_POS = {
+        left: {
+            top: '0',
+            left: '100%'
+        },
+        right: {
+            top: '0',
+            left: '-100%'
+        },
+        bottom: {
+            top: '-100%',
+            left: '0'
+        },
+        top: {
+            top: '100%',
+            left: '0'
+        }
+    };
+
+    $('.work_box ul li').each(function () {
+        new MouseDirection(this, {
+            leave: function ($element, dir) {
+                //每次进入前先把.trans类移除掉，以免后面调整位置的时候也产生过渡效果
+                var $content = $element.find('.content').removeClass('trans');
+                //调整位置
+                $content.css(DIR_POS[dir]);
+                //reflow
+                $content[0].offsetWidth;
+                //启用过渡
+                $content.addClass('trans');
+                //滑入
+                $content.css({left: '0', top: '0'});
+            },
+            enter: function ($element, dir) {
+                $element.find('.content').css(DIR_POS[dir]);
+            }
+        });
+    });
+    var DIR_POS1 = {
+        left: {
+            top: '0',
+            left: '-100%'
+        },
+        right: {
+            top: '0',
+            left: '100%'
+        },
+        bottom: {
+            top: '100%',
+            left: '0'
+        },
+        top: {
+            top: '-100%',
+            left: '0'
+        }
+    };
+    $('.work_box ul li').each(function () {
+        new MouseDirection(this, {
+            enter: function ($element, dir) {
+                //每次进入前先把.trans类移除掉，以免后面调整位置的时候也产生过渡效果
+                var $content1 = $element.find('.content_slide').removeClass('trans');
+                //调整位置
+                $content1.css(DIR_POS1[dir]);
+                //reflow
+                $content1[0].offsetWidth;
+                //启用过渡
+                $content1.addClass('trans');
+                //滑入
+                $content1.css({left: '0', top: '0'});
+            },
+            leave: function ($element, dir) {
+                $element.find('.content_slide').css(DIR_POS1[dir]);
+            }
+        });
+    });
+    // 鼠标滑过motion出现的样式
+    var work_btn=document.querySelector('.work_btn');
+    var work_ul=work_btn.querySelector('ul');
+    work_ul.onmouseover=function(){
+            this.className='fade_in';
+    }
+    work_ul.onmouseout=function(){       
+            this.className='fade_out';     
+    }
+
+
+
+
+    // window.onmouseover=function(ev){
+    //     console.log(ev.clientX,ev.clientY);
+    // }
+</script>
+</body>
+</html>
